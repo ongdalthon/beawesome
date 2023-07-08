@@ -1,0 +1,23 @@
+{
+    "development": {
+      "username": "root",
+      "password": "ods123!",
+      "database": "BRAWESOME",
+      "host": "211.45.175.24",
+      "dialect": "mysql"
+    },
+    "test": {
+        "username": "root",
+        "password": "ods123!",
+        "database": "BRAWESOME",
+        "host": "211.45.175.24",
+        "dialect": "mysql"
+    },
+    "production": {
+        "username": "root",
+        "password": "ods123!",
+        "database": "BRAWESOME",
+        "host": "211.45.175.24",
+        "dialect": "mysql"
+    }
+  }
