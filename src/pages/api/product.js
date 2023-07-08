@@ -16,6 +16,7 @@ export default async function handler(req, res) {
       PR_ALC: body.PR_ALC,
       PR_NON: body.PR_NON,
       PR_IMAGE: body.PR_IMAGE,
+      PR_BACKGROUND: body.PR_BACKGROUND,
       PR_PRICE: body.PR_PRICE,
     }).then((result) => {
       return result

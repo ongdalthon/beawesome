@@ -82,6 +82,10 @@ const PRODUCT_TB_MODEL = (sequelize, DataTypes) => {
         type: DataTypes.INTEGER,
         allowNull: false,
       },
+      PR_BACKGROUND: {
+        type: DataTypes.STRING,
+        allowNull: false,
+      },
     },
     {
       freezeTableName: true,
