@@ -76,7 +76,11 @@ const PRODUCT_TB_MODEL = (sequelize, DataTypes) => {
       },
       PR_IMAGE: {
         type: DataTypes.STRING,
-        allowNull: true,
+        allowNull: false,
+      },
+      PR_PRICE: {
+        type: DataTypes.INTEGER,
+        allowNull: false,
       },
     },
     {
