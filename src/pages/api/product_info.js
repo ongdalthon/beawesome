@@ -19,6 +19,7 @@ export default async function handler(req, res) {
         'PR_ALC',
         'PR_NON',
         'PR_IMAGE',
+        'PR_PRICE',
       ],
     }).then((result) => {
       return result
