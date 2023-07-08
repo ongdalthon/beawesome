@@ -6,4 +6,8 @@ export const palette = {
   BEA_MAIN_200: '#FFE082',
   BEA_MAIN_100: '#FFECB3',
   BEA_MAIN_50: '#FFF8E1',
+
+  BEA_NEU_500: '#8B8A88',
+
+  BEA_SUB_700: '#1370DD',
 }

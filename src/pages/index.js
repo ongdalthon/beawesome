@@ -11,6 +11,7 @@ import { styled } from 'styled-components'
 
 export default function Home() {
   const [beerName, setBeerName] = useState('')
+  const [isRecommended, setIsRecommended] = useState(false)
   return (
     <HomeContainer>
       <Flex>
@@ -25,8 +26,15 @@ export default function Home() {
         />
         <Space height={'100px'} />
         <Flex gap={16}>
-          <SearchBeer state={beerName} setState={setBeerName} />
+          {isRecommended ? (
+            ''
+          ) : (
+            <SearchBeer state={beerName} setState={setBeerName} />
+          )}
+
           <Button
+            isClicked={isRecommended}
+            onClick={setIsRecommended}
             color={palette.BEA_MAIN_200}
             size={14}
             padding={'8px 16px'}
@@ -34,6 +42,28 @@ export default function Home() {
             text={'비어썸에게 추천받을래요'}
             radius={8}
           />
+          {isRecommended ? (
+            <Flex gap={16}>
+              <Button
+                color={palette.BEA_MAIN_200}
+                size={14}
+                padding={'30px 16px'}
+                border={`1px solid ${palette.BEA_MAIN_200}`}
+                text={'알콜 맥주 추천'}
+                radius={20}
+              />
+              <Button
+                color={palette.BEA_MAIN_200}
+                size={14}
+                padding={'30px 16px'}
+                border={`1px solid ${palette.BEA_MAIN_200}`}
+                text={'논알콜 맥주 추천'}
+                radius={20}
+              />
+            </Flex>
+          ) : (
+            ''
+          )}
         </Flex>
       </Flex>
     </HomeContainer>
