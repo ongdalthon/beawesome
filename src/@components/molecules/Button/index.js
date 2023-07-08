@@ -1,14 +1,17 @@
 import styled from 'styled-components'
 import { Children } from 'react'
 import { Text } from '~/@components/atoms/Text'
+import Image from 'next/image'
+import { Flex } from '~/@components/atoms/Flex'
 
 export const Button = ({
   padding = 0,
   text = '',
   border = 'none',
-  backgroundColor = 'white',
+  backgroundColor = 'transparent',
   size = 18,
-  radius = 10,
+  color = 'black',
+  radius = 1,
 }) => {
   return (
     <StyledButton
@@ -17,7 +20,10 @@ export const Button = ({
       bgColor={backgroundColor}
       radius={radius}
     >
-      <Text text={text} size={size} cursor="pointer" />
+      <Flex direction="row" justify="space-between">
+        <Text text={text} size={size} cursor="pointer" color={color} />
+        <Image src={'/heart.svg'} width={24} height={24} alt="heart" />
+      </Flex>
     </StyledButton>
   )
 }
@@ -25,7 +31,7 @@ export const Button = ({
 const StyledButton = styled.button`
   width: 100%;
   cursor: pointer;
-  padding: ${({ padding }) => padding}px;
+  padding: ${({ padding }) => padding};
   border: ${({ border }) => border};
   background-color: ${({ bgColor }) => bgColor};
   border-radius: ${({ radius }) => radius}px;
