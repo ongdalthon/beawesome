@@ -8,12 +8,17 @@ import Link from 'next/link'
 import { palette } from '~/@styles/palette'
 import { Flex } from '~/@components/atoms/Flex'
 import { Space } from '~/@components/atoms/Space'
+import { useRouter } from 'next/router'
 
-const BeerList = ['카스', '카스', '곰표', '테라', '제주 맥주']
-
-const SearchBeer = ({ state, setState }) => {
-  const filteredList = BeerList.filter((el) => Hangul.search(el, state) === 0)
+const SearchBeer = ({ state, setState, data }) => {
+  const filteredList = data
+    ? data.filter((el) => Hangul.search(el.PR_NAME, state) === 0)
+    : ''
   const [isClicked, setIsClicked] = useState(false)
+  const router = useRouter()
+  const goToDetail = (id) => {
+    router.push(`/${id}`)
+  }
 
   return (
     <SearchBeerContainer>
@@ -26,16 +31,19 @@ const SearchBeer = ({ state, setState }) => {
       <ResultContainer isClicked={isClicked}>
         {isClicked ? (
           <Flex gap={8} align="start">
-            {filteredList.length !== 0 ? (
-              filteredList.map((el) => (
+            {filteredList?.length !== 0 ? (
+              filteredList?.map((el) => (
                 <Link
-                  href={`/${el}`}
+                  href={`/${el.PR_ID_PK}`}
                   key={uuidv4()}
                   style={{ textDecoration: 'none', width: '100%' }}
+                  onMouseDown={() => {
+                    goToDetail(el.PR_ID_PK)
+                  }}
                 >
                   <EachResultContainer>
                     <Text
-                      text={el}
+                      text={el.PR_NAME}
                       cursor="pointer"
                       font="Spoqa"
                       size={14}

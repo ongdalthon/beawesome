@@ -8,6 +8,7 @@ export const palette = {
   BEA_MAIN_50: '#FFF8E1',
 
   BEA_NEU_500: '#8B8A88',
+  BEA_NEU_700: '#514F4E',
 
   BEA_SUB_700: '#1370DD',
 }

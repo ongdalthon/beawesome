@@ -1,6 +1,5 @@
-import { useState } from 'react'
+import { useEffect, useState } from 'react'
 import { Flex } from '~/@components/atoms/Flex'
-import Input from '~/@components/molecules/Input'
 import { Space } from '~/@components/atoms/Space'
 import { Button } from '~/@components/molecules/Button'
 import SearchBeer from '~/@components/organisms/SearchBeer'
@@ -8,10 +7,24 @@ import NextImage from '~/@components/molecules/ImageWrapper'
 import { Text } from '~/@components/atoms/Text'
 import { palette } from '~/@styles/palette'
 import { styled } from 'styled-components'
+import useSWR from 'swr'
+import axios from 'axios'
 
 export default function Home() {
   const [beerName, setBeerName] = useState('')
   const [isRecommended, setIsRecommended] = useState(false)
+
+  const fetcher = async (url) => {
+    return await axios.get(url)
+  }
+
+  const { data } = useSWR(() => '/api/product_list', fetcher)
+  const products = data?.data?.product
+
+  useEffect(() => {
+    console.log(products)
+  }, [data])
+
   return (
     <HomeContainer>
       <Flex>
@@ -29,7 +42,11 @@ export default function Home() {
           {isRecommended ? (
             ''
           ) : (
-            <SearchBeer state={beerName} setState={setBeerName} />
+            <SearchBeer
+              state={beerName}
+              setState={setBeerName}
+              data={products}
+            />
           )}
 
           <Button
