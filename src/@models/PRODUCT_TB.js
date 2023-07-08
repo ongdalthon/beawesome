@@ -22,9 +22,9 @@ const PRODUCT_TB_MODEL = (sequelize, DataTypes) => {
         get() {
           return JSON.parse(this.getDataValue('PR_TAG'))
         },
-        set(value) {
-          return this.setDataValue('PR_TAG', JSON.stringify(value))
-        },
+        // set(value) {
+        //   return this.setDataValue('PR_TAG', JSON.stringify(value))
+        // },
       },
       PR_SALES: {
         type: DataTypes.TEXT,
@@ -32,19 +32,19 @@ const PRODUCT_TB_MODEL = (sequelize, DataTypes) => {
         get() {
           return JSON.parse(this.getDataValue('PR_SALES'))
         },
-        set(value) {
-          return this.setDataValue('PR_SALES', JSON.stringify(value))
-        },
+        // set(value) {
+        //   return this.setDataValue('PR_SALES', JSON.stringify(value))
+        // },
       },
       PR_PARING: {
-        type: DataTypes.JSON,
+        type: DataTypes.TEXT,
         allowNull: true,
         get() {
           return JSON.parse(this.getDataValue('PR_PARING'))
         },
-        set(value) {
-          return this.setDataValue('PR_PARING', JSON.stringify(value))
-        },
+        // set(value) {
+        //   return this.setDataValue('PR_PARING', JSON.stringify(value))
+        // },
       },
       PR_DES: {
         type: DataTypes.TEXT,

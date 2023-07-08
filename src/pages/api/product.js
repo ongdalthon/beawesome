@@ -2,7 +2,7 @@ import db from '../../@models'
 const PRODUCT_TB = db.PRODUCT_TB
 
 export default async function handler(req, res) {
-  if (req.method === 'POST') {
+  if (req.method == 'POST') {
     const body = req.body
     // console.log(body.PR_NAME)
 
@@ -20,9 +20,13 @@ export default async function handler(req, res) {
     }).then((result) => {
       return result
     })
+    return res.status(200).json({ product })
+  } else {
+    const product = await PRODUCT_TB.findAll({}).then((result) => {
+      return result
+    })
+    return res.status(200).json({ product })
   }
-
-  return res.status(200).json({ product })
 
   // const product = models.PRODUCT_TB.findAll({}).then((result) => {})
   // PRODUCT_TB
