@@ -10,6 +10,7 @@ export const Flex = ({
   width = '100%',
   height = 'auto',
   wrap = 'no-wrap',
+  overflow = 'visible',
 }) => {
   return (
     <FlexBase
@@ -21,6 +22,7 @@ export const Flex = ({
       width={width}
       height={height}
       wrap={wrap}
+      overflow={overflow}
     >
       {children}
     </FlexBase>
@@ -36,4 +38,5 @@ const FlexBase = styled.div`
   align-items: ${({ align }) => align};
   gap: ${({ gap }) => `${gap}px`};
   flex-wrap: ${({ wrap }) => wrap};
+  overflow: ${({ overflow }) => overflow};
 `

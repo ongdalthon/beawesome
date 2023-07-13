@@ -19,6 +19,7 @@ const AppLayoutContainer = styled.div`
     id
       ? `${palette.BEA_WHITE}`
       : `linear-gradient(130deg, #ff7f1c 0%, #ff512b 100%)`};
+  overflow: hidden;
 `
 
 export default AppLayout

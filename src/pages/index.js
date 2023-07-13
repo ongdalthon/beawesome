@@ -21,10 +21,6 @@ export default function Home() {
   const { data } = useSWR(() => '/api/product_list', fetcher)
   const products = data?.data?.product
 
-  useEffect(() => {
-    console.log(products)
-  }, [data])
-
   return (
     <HomeContainer>
       <Flex>

@@ -11,7 +11,7 @@ const fetchProduct = async () => {
   }
 }
 
-const index = () => {
+const Index = () => {
   const [data, setData] = useState([])
   useEffect(() => {
     fetchProduct().then((result) => {
@@ -19,7 +19,7 @@ const index = () => {
       //   console.log(result.data)
     })
   }, [])
-  console.log(data)
+
   const columns = useMemo(
     () => [
       {
@@ -40,4 +40,4 @@ const index = () => {
   return <MaterialReactTable columns={columns} data={data} />
 }
 
-export default index
+export default Index
