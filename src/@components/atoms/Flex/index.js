@@ -9,7 +9,7 @@ export const Flex = ({
   gap = 0,
   width = '100%',
   height = 'auto',
-  wrap = 'no-wrap',
+  wrap = 'nowrap',
   overflow = 'visible',
 }) => {
   return (
