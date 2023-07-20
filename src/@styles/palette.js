@@ -3,12 +3,14 @@ export const palette = {
   BEA_WHITE: '#FFFFFF',
 
   BEA_MAIN_800: '#FF6F00',
+  BEA_MAIN_700: '#FF8F00',
   BEA_MAIN_600: '#FFA000',
   BEA_MAIN_200: '#FFE082',
   BEA_MAIN_100: '#FFECB3',
   BEA_MAIN_50: '#FFF8E1',
 
   BEA_NEU_200: '#E5E5E9',
+
   BEA_NEU_500: '#8B8A88',
   BEA_NEU_700: '#514F4E',
 
