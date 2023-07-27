@@ -21,6 +21,8 @@ export default function Home() {
   const { data } = useSWR(() => '/api/product_list', fetcher)
   const products = data?.data?.product
 
+  console.log(data)
+
   return (
     <HomeContainer>
       <Flex>
@@ -35,45 +37,47 @@ export default function Home() {
         />
         <Space height={'100px'} />
         <Flex gap={16}>
-          {isRecommended ? (
-            ''
-          ) : (
+          <SearchBeerAnimation isClicked={isRecommended}>
             <SearchBeer
               state={beerName}
               setState={setBeerName}
               data={products}
             />
-          )}
+          </SearchBeerAnimation>
 
-          <Button
-            isClicked={isRecommended}
-            onClick={setIsRecommended}
-            color={palette.BEA_MAIN_200}
-            size={14}
-            padding={'8px 16px'}
-            border={`1px solid ${palette.BEA_MAIN_200}`}
-            text={'비어썸에게 추천받을래요'}
-            radius={8}
-          />
+          <AnimationContainer isClicked={isRecommended}>
+            <Button
+              isClicked={isRecommended}
+              onClick={setIsRecommended}
+              color={palette.BEA_MAIN_200}
+              size={14}
+              padding={'8px 16px'}
+              border={`1px solid ${palette.BEA_MAIN_200}`}
+              text={'비어썸에게 추천받을래요'}
+              radius={8}
+            />
+          </AnimationContainer>
           {isRecommended ? (
-            <Flex gap={16}>
-              <Button
-                color={palette.BEA_MAIN_200}
-                size={14}
-                padding={'30px 16px'}
-                border={`1px solid ${palette.BEA_MAIN_200}`}
-                text={'알콜 맥주 추천'}
-                radius={20}
-              />
-              <Button
-                color={palette.BEA_MAIN_200}
-                size={14}
-                padding={'30px 16px'}
-                border={`1px solid ${palette.BEA_MAIN_200}`}
-                text={'논알콜 맥주 추천'}
-                radius={20}
-              />
-            </Flex>
+            <RecommendBeerContainer>
+              <Flex gap={16}>
+                <Button
+                  color={palette.BEA_MAIN_200}
+                  size={14}
+                  padding={'30px 16px'}
+                  border={`1px solid ${palette.BEA_MAIN_200}`}
+                  text={'알콜 맥주 추천'}
+                  radius={20}
+                />
+                <Button
+                  color={palette.BEA_MAIN_200}
+                  size={14}
+                  padding={'30px 16px'}
+                  border={`1px solid ${palette.BEA_MAIN_200}`}
+                  text={'논알콜 맥주 추천'}
+                  radius={20}
+                />
+              </Flex>
+            </RecommendBeerContainer>
           ) : (
             ''
           )}
@@ -83,7 +87,25 @@ export default function Home() {
   )
 }
 
+const SearchBeerAnimation = styled.div`
+  transition: all 300ms;
+  opacity: ${({ isClicked }) => (isClicked ? `0%` : `100%`)};
+  width: 100%;
+`
+
+const AnimationContainer = styled.div`
+  transition: all 300ms;
+  transform: ${({ isClicked }) =>
+    isClicked ? `translateY(-55px)` : `translateY(0px)`};
+  width: 100%;
+`
+
 const HomeContainer = styled.div`
   width: 100%;
   height: 100vh;
+`
+
+const RecommendBeerContainer = styled.div`
+  width: 100%;
+  transform: translateY(-55px);
 `

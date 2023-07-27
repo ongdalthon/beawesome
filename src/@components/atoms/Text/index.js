@@ -8,7 +8,7 @@ export const Text = ({
   font = 'Spoqa',
   height = 120,
   cursor = 'auto',
-  background,
+  background = null,
   gradient = false,
   align = 'start',
   text,
@@ -24,6 +24,8 @@ export const Text = ({
       height={height}
       cursor={cursor}
       align={align}
+      background={background}
+      gradient={gradient}
       {...rest}
     >
       {text}
@@ -41,13 +43,11 @@ const StyledText = styled.span`
   text-align: ${({ align }) => align};
   cursor: ${({ cursor }) => cursor};
   background: ${({ background }) => background};
+
   ${({ gradient }) =>
     gradient
       ? `-webkit-background-clip: text;
-  -webkit-text-fill-color:transparent;
-  background-clip: text;
-  text-fill-color:transparent;
-
+      -webkit-text-fill-color: transparent;
   `
       : null};
 `

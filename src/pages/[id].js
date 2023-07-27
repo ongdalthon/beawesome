@@ -73,6 +73,8 @@ const Index = ({ data }) => {
   const parsedData = JSON.parse(data)
   const [isSearching, setIsSearching] = useState(false)
 
+  console.log(parsedData)
+
   return (
     <div
       style={{

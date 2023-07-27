@@ -13,6 +13,8 @@ export const palette = {
 
   BEA_NEU_500: '#8B8A88',
   BEA_NEU_700: '#514F4E',
+  BEA_NEU_800: '#333231',
+  BEA_NEU_900: '#131211',
 
   BEA_SUB_700: '#1370DD',
 }

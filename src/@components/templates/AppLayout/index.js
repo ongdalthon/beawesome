@@ -5,9 +5,10 @@ import { palette } from '~/@styles/palette'
 
 const AppLayout = ({ children }) => {
   const router = useRouter()
-  const { id } = router.query
+  const { id, category } = router.query
+  const isDetail = id || category ? true : false
 
-  return <AppLayoutContainer id={id}>{children}</AppLayoutContainer>
+  return <AppLayoutContainer id={isDetail}>{children}</AppLayoutContainer>
 }
 
 const AppLayoutContainer = styled.div`
