@@ -76,6 +76,7 @@ const SearchBeerContainer = styled.div`
 const ResultContainer = styled.div`
   background-color: ${palette.BEA_MAIN_50};
   width: 100%;
+  z-index: 2;
   position: absolute;
   padding: ${({ isClicked }) => (isClicked ? '8px' : '0px')};
 `

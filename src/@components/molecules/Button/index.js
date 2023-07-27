@@ -40,15 +40,19 @@ export const Button = ({
           cursor="pointer"
           color={isClicked ? 'white' : color}
         />
-        {isClicked ? (
-          ''
-        ) : (
-          <Image src={'/heart.svg'} width={20} height={20} alt="heart" />
-        )}
+
+        <SearchBeerAnimation isClicked={isClicked}>
+          <Image src={'/heart.svg'} width={24} height={24} alt="heart" />
+        </SearchBeerAnimation>
       </Flex>
     </StyledButton>
   )
 }
+
+const SearchBeerAnimation = styled.div`
+  transition: all 300ms;
+  opacity: ${({ isClicked }) => (isClicked ? `0%` : `100%`)};
+`
 
 const StyledButton = styled.button`
   width: ${({ width }) => width};
